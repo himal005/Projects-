@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Counter </title>
+    <style>
+        
+        /*=============== BASE ===============*/
+        * {
+            font-size: 14px;
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .container{
+            padding: 2rem;
+            background-color: #f4f4f4;
+            border-radius: 2rem;
+            box-shadow: 0 4px 16px;
+        }
+        h1{
+            font-size: 5rem;
+        }
+        h2{
+            font-size: 3em;
+        }
+
+        .controlValue{
+            margin-top: 1.3rem;
+            display: flex;
+            gap: 3rem;
+        }
+
+        button{
+            height: 3rem;
+            width: 6rem;
+            border: none;
+            background-color: rgba(255, 0, 0, 0.226);
+            border-radius: 2rem;
+            transition: .5s;
+        }
+        button:where(:hover){
+            background-color: rgba(255, 0, 0, 0.411);
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="counter"> Counter </h2>
+
+
+        <h1 class="countValue">0</h1>
+
+        <div class="controlValue">
+            <button class="decrease">Decrease</button>
+            <button class="reset">Reset</button>
+            <button class="increase">Increase</button>
+        </div>
+    </div>
+
+    <script>
+        const increase = document.querySelector('.increase')
+        const reset = document.querySelector('.reset')
+        const decrease = document.querySelector('.decrease')
+        const changeValue = document.querySelector('.countValue')
+
+        let count = 0; 
+        increase.addEventListener('click',()=>{
+            count++;
+            changeValue.textContent = count;
+        })
+        decrease.addEventListener('click',()=>{
+            count--;
+            if(count < 0 ) return ;
+            changeValue.textContent = count;
+        })
+        reset.addEventListener('click',()=>{
+            count = 0;
+            changeValue.textContent = count;
+        })
+
+
+    </script>
+</body>
+</html>
